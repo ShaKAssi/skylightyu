@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #111827;
+    color: #f9fafb;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.clock-section {
+    padding: 30px 20px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.location {
+    margin-bottom: 10px;
+    color: #9ca3af;
+    font-size: 16px;
+}
+
+.clock {
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-variant-numeric: tabular-nums;
+}
+
+.farm-section,
+.shards-section,
+.calendar-section {
+    margin-top: 20px;
+    padding: 24px;
+    background: #1f2937;
+    border-radius: 16px;
+}
+
+.farm-section h1,
+.shards-section h1,
+.calendar-section h1 {
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.schedule-card {
+    min-width: 0;
+    padding: 18px;
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 12px;
+}
+
+.schedule-card-header {
+    margin-bottom: 14px;
+}
+
+.schedule-card-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.schedule-times {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 8px 12px;
+    background: #273449;
+    border: 1px solid #3b4a60;
+    border-radius: 8px;
+    color: #f9fafb;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.time-badge.active-event {
+    background: rgba(16, 185, 129, 0.22);
+    border-color: #34d399;
+    color: #a7f3d0;
+    box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.15);
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.event-past {
+    opacity: 0.45;
+    filter: grayscale(1);
+    transition:
+        opacity 0.3s ease,
+        filter 0.3s ease;
+}
+
+.no-events {
+    grid-column: 1 / -1;
+    padding: 18px;
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    color: #d1d5db;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.shards-calendar {
+    width: 100%;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.calendar-weekday {
+    padding: 8px 0;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.calendar-day {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 58px;
+    background: #111827;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.calendar-day.empty {
+    background: transparent;
+}
+
+.calendar-day.red {
+    background: rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+}
+
+.calendar-day.black {
+    background: rgba(107, 114, 128, 0.35);
+    color: #e5e7eb;
+}
+
+.calendar-day.today {
+    outline: 2px solid #f9fafb;
+    outline-offset: -2px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 20px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+}
+
+.social-links h1 {
+    flex: 0 0 100%;
+    width: 100%;
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+
+.social-links a {
+    display: inline-block;
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 16px 12px 24px;
+    }
+
+    .clock-section {
+        padding: 20px 10px;
+        margin-bottom: 16px;
+    }
+
+    .location {
+        font-size: 14px;
+    }
+
+    .farm-section,
+    .shards-section,
+    .calendar-section {
+        padding: 18px 14px;
+        margin-top: 16px;
+    }
+
+    .farm-section h1,
+    .shards-section h1,
+    .calendar-section h1 {
+        font-size: 21px;
+    }
+
+    .schedule-card {
+        padding: 16px;
+    }
+
+    .schedule-card-header h2 {
+        font-size: 17px;
+    }
+
+    .time-badge {
+        min-height: 36px;
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    .calendar-header,
+    .calendar-grid {
+        gap: 4px;
+    }
+
+    .calendar-weekday {
+        padding: 6px 0;
+        font-size: 11px;
+    }
+
+    .calendar-day {
+        min-height: 44px;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .farm-section,
+    .shards-section,
+    .calendar-section {
+        padding: 14px 10px;
+    }
+
+    .calendar-header,
+    .calendar-grid {
+        gap: 3px;
+    }
+
+    .calendar-day {
+        min-height: 38px;
+        font-size: 12px;
+    }
+}

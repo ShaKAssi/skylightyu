@@ -1,0 +1,26 @@
+{
+    "timezone": "Asia/Shanghai",
+
+    "grandma": {
+        "name": "👵 Бабушка",
+        "times": [
+            "08:00",
+            "10:00",
+            "12:00",
+            "16:00",
+            "18:00",
+            "20:00",
+            "22:00"
+        ],
+        "durationMinutes": 30
+    },
+
+    "turtle": {
+        "name": "🐢 Черепаха",
+        "times": [
+            "17:30",
+            "20:30"
+        ],
+        "durationMinutes": 180
+    }
+}
